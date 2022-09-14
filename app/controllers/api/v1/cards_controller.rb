@@ -29,7 +29,7 @@ module Api
 
       def update
         card = Card.find(params[:id])
-        if card.update_attributes(card_params)
+        if card.update(card_params)
           render json: {status: 'SUCCESS', message: 'Updated card', data: card}, status: :ok
         else
           render json: {status: 'ERROR', message: 'Card not updated', data: card.errors}, status: unprocessable_entity
